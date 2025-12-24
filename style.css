@@ -117,16 +117,15 @@ nav .right a:last-child{
 /* Experiences and Projects Section */
 .experiences_and_projects {
   border-radius: 10px;
-  overflow: visible;
   margin: 0 auto;
   width: 90%;
+  scroll-margin-top: 70px;
 }
 
 .experiences_and_projects .text {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: 10px 300px;
 }
@@ -134,133 +133,140 @@ nav .right a:last-child{
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 40px 30px;
-  width: 70%;
-  margin: 0 auto;   
   gap: 40px;
-  background-color: transparent;
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 40px 0px;
 }
 
+/* CARD */
 .item {
   padding: 5rem;
+   min-height: 270px; 
   position: relative;
-  transition: all 0.4s;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 1.5px  rgba(0, 0, 0, 0.705);
-  font-size: 30px;
-  font-weight: 900;
-  overflow: hidden;
-  transform-origin: center;
-}
-.item:hover {
-  transform: scale(1.08);
   border-radius: 15px;
-  box-shadow: 0 0 5px 0.5px rgba(0,0,0,0.7);
-  background: rgb(103, 151, 255);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0px 0px 10px 1.5px rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
 
-/* Layer contents absolutely */
-.first-content,
+.item:hover {
+  transform: scale(1.08);
+}
+
+/* LAYERS */
+.first-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .second-content {
   position: absolute;
   inset: 0;
+  background: var(--primary-color); /* or any color */
+  color: var(--background-color);
+  z-index: 3;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 15px;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  justify-content: center;
+  text-align: center;
+
+  transform: translateY(100%); /* start hidden below */
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* First content visible by default */
+
+/* DEFAULT VISIBILITY */
 .first-content {
   opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-
-/* Second content hidden by default (rotated) */
-.second-content {
-  opacity: 0;
-  transform: rotate(90deg) scale(-1);
-}
-
-/* Hover: swap contents */
-.item:hover .first-content {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.95);
 }
 
 .item:hover .second-content {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
+  transform: translateY(0);
 }
 
+.second-content span {
+  font-size: 26px;
+  font-weight: 700;
+  padding: 20px;
+}
+
+/* IMAGES ALWAYS FULL CARD */
+.first-content img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TEXT OVER IMAGE */
+.first-content span,
+.second-content span {
+  position: relative;
+  z-index: 2;
+  color: var(--background-color);
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  text-shadow: 
+    0.5px 0.5px 2px var(--text-color),   
+    -0.5px -0.5px 2px var(--text-color),  
+    0.5px -0.5px 2px var(--text-color),  
+    -0.5px 0.5px 2px var(--text-color);   
+}
+
+/* GRID SHAPING (UNCHANGED LOGIC) */
 .item:first-child {
-  background: salmon;
   grid-column: 1 / span 2;
-  grid-row: 1 / span 2;
-}
-
-/* Tall feature on the right */
-.item:nth-child(2) {
-  background: seagreen;
-  grid-column: 3 / span 1;
-  grid-row: 1 / span 3;
-}
-
-/* Medium cards under hero */
-.item:nth-child(3) {
-  background: goldenrod;
-  grid-column: 1 / span 1;
   grid-row: 3 / span 2;
 }
 
-.item:nth-child(4) {
-  background: red;
-  grid-column: 2 / span 1;
-  grid-row: 3 / span 1;
-}
-
-/* Wide statement card */
-.item:nth-child(5) {
-  background: gray;
-  grid-column: 1 / span 1;
-  grid-row: 6 / span 2;
-}
-
-/* Vertical rhythm card */
-.item:nth-child(6) {
-  background: teal;
+.item:nth-child(2) {
   grid-column: 3 / span 1;
+  grid-row: 3 / span 3;
+}
+
+.item:nth-child(3) {
+  grid-column: 1 / span 1;
   grid-row: 5 / span 2;
 }
 
-/* Small accents */
-.item:nth-child(7) {
-  background: tomato;
-  grid-column: 2 / span 2;
-  grid-row: 4 / span 1;
-}
-
-.item:nth-child(8) {
-  background: chocolate;
-  grid-column: 1 / span 2;
+.item:nth-child(4) {
+  grid-column: 2 / span 1;
   grid-row: 5 / span 1;
 }
 
+.item:nth-child(5) {
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 1;
+}
 
-.item:nth-child(9) {
-  background: violet;
-  grid-column: 2 / span 1;
+.item:nth-child(6) {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+
+.item:nth-child(7) {
+  grid-column: 2 / span 2;
   grid-row: 6 / span 1;
 }
 
-
-.item:nth-child(10) {
-  background: hotpink;
+.item:nth-child(8) {
   grid-column: 2 / span 2;
-  grid-row: 7 / span 1;
+  grid-row: 1 / span 1;
 }
+
+
 
 /*About me section*/
 .about-me {
@@ -326,10 +332,17 @@ nav .right a:last-child{
 
 .contact-photo {
     width: 300px;
-    height: 300px;
+    height: 520px;
     background: rgba(255,255,255,0.1);
     border-radius: 15px;
     flex-shrink: 0;
+}
+
+.contact-photo img.contact_image {
+    width: 100%;     
+    height: 100%;   
+    object-fit: cover; 
+    border-radius: 15px; 
 }
 
 .contact-content {
@@ -505,8 +518,8 @@ h2 {
 
 
 .glass {
-  width: 140px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   background: linear-gradient(#fff2, transparent);
   backdrop-filter: blur(12px);
   border-radius: 16px;
