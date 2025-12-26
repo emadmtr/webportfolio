@@ -108,6 +108,7 @@ nav .right a:last-child{
 .hero-section .text p {
     text-align: center;
     max-width: 650px;
+    z-index: 1; 
 }
 
 .hero-section .reach-text {
@@ -123,7 +124,7 @@ nav .right a:last-child{
   left:-12%;
   height: auto;
   opacity: 1; /* optional transparency */
-  z-index: 1; /* behind text */
+  z-index: 0; 
 }
 
 /* Experiences and Projects Section */
@@ -558,6 +559,7 @@ nav .right a:last-child{
     display: flex;       /* horizontal layout for hero */
     flex-direction: row; /* reuse existing styling but row instead of column */
     gap: 10px;
+    z-index: 10; 
 }
 
 .social-box {
