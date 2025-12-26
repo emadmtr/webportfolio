@@ -85,13 +85,14 @@ nav .right a:last-child{
 
 /* Hero Section Styles */
 .hero-section {
-    margin-top: 200px;
+    margin-top: 180px;
     display: flex;
     flex-direction: column; 
     justify-content: center;
     align-items: center;    
-    height: 70vh;
+    height: 50vh;
     color: var(--text-color);
+    background-color: var(--background-color);
     text-align: center;
     padding: 20px 40px;     
     gap: 20px;             
@@ -100,18 +101,29 @@ nav .right a:last-child{
 .hero-section .text h1 {
     font-size: 48px;
     margin-bottom: 10px;
+        margin-top: 10px;
+
 }
 
 .hero-section .text p {
     text-align: center;
     max-width: 650px;
-    margin-bottom: 20px;  
 }
 
 .hero-section .reach-text {
     margin-top: 30px;  
     text-align: center;
     max-width: 250px;   
+}
+
+.hero-section .hero-icon {
+  position: absolute;
+  width: 1700px; /* adjust size */
+  top:0%;
+  left:-12%;
+  height: auto;
+  opacity: 1; /* optional transparency */
+  z-index: 1; /* behind text */
 }
 
 /* Experiences and Projects Section */
@@ -127,7 +139,7 @@ nav .right a:last-child{
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 10px 300px;
+  padding: 0 300px;
 }
 
 .grid {
@@ -181,7 +193,6 @@ nav .right a:last-child{
 }
 
 
-/* DEFAULT VISIBILITY */
 .first-content {
   opacity: 1;
 }
@@ -196,7 +207,6 @@ nav .right a:last-child{
   padding: 20px;
 }
 
-/* IMAGES ALWAYS FULL CARD */
 .first-content img{
   position: absolute;
   inset: 0;
@@ -205,7 +215,6 @@ nav .right a:last-child{
   object-fit: cover;
 }
 
-/* TEXT OVER IMAGE */
 .first-content span,
 .second-content span {
   position: relative;
@@ -225,7 +234,6 @@ nav .right a:last-child{
     -0.5px 0.5px 2px var(--text-color);   
 }
 
-/* GRID SHAPING (UNCHANGED LOGIC) */
 .item:first-child {
   grid-column: 1 / span 2;
   grid-row: 3 / span 2;
@@ -266,6 +274,104 @@ nav .right a:last-child{
   grid-row: 1 / span 1;
 }
 
+/*Button Logic */
+.overlay-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  height: 100%;
+}
+
+.overlay-content h3 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.overlay-content p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.project-btn {
+  align-self: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  background: var(--background-color);
+  color: var(--primary-color);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-btn:hover {
+  transform: scale(1.1);
+}
+
+/*Modal Styles */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: var(--background-color);
+  color: var(--text-color);
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 1000px;
+  width: 90%;
+  position: relative;
+}
+.modal-content img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 15px 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  color: var(--primary-color);
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.demo-btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--primary-color); /* brown-pink palette */
+  color: var(--background-color);
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.demo-btn:hover {
+  transform: scale(1.1);
+}
 
 
 /*About me section*/
@@ -666,14 +772,14 @@ h2 {
 } 
 
 /* Step positions across the screen */ 
-.paw-1 { left: 0vw; top: 120px; animation-delay: 0s; } 
-.paw-2 { left: 10vw; top: 80px; animation-delay: 0.8s; } 
-.paw-4 { left: 20vw; top: 120px; animation-delay: 1.6s; } 
-.paw-5 { left: 30vw; top: 80px; animation-delay: 2.0s; }
-.paw-6 { left: 55vw; top: 80px; animation-delay: 2.4s; } 
-.paw-7 { left: 65vw; top: 120px; animation-delay: 3.2s; } 
-.paw-8 { left: 75vw; top: 80px; animation-delay: 4.0s; } 
-.paw-9 { left: 85vw; top: 120px; animation-delay: 4.8s; } 
+.paw-1 { left: 0vw;  top: 15vh;  animation-delay: 0s; } 
+.paw-2 { left: 10vw; top: 10vh;  animation-delay: 0.8s; } 
+.paw-4 { left: 20vw; top: 15vh;  animation-delay: 1.6s; } 
+.paw-5 { left: 30vw; top: 10vh;  animation-delay: 2.0s; }
+.paw-6 { left: 65vw; top: 15vh;  animation-delay: 2.4s; } 
+.paw-7 { left: 75vw; top: 10vh;  animation-delay: 3.2s; } 
+.paw-8 { left: 85vw; top: 15vh;  animation-delay: 4.0s; } 
+.paw-9 { left: 95vw; top: 10vh;  animation-delay: 4.8s; }
 
 /* Stepping animation */ 
 @keyframes pawStep {
@@ -698,12 +804,12 @@ h2 {
 /* Thank You Section */
 .thank-you {
     position: absolute;
-    top: 95px;
-    right: 150px;
+    top: 10vh;     
+    right: 0vw;   
     text-align: center;
     background: transparent;
     color: var(--text-color);
-    padding: 0 500px;
+    padding: 0 40vw; 
     margin: 0;
     z-index: 15;
 }
