@@ -260,7 +260,7 @@
                 <p>The claw is designed to pick up and sort <strong>coins</strong> based on their <strong>color</strong> using <strong>computer vision techniques implemented with OpenCV</strong>. It is mounted on a <strong>custom frame</strong> that allows motion along the <strong>X, Y, and Z axes</strong>. An <strong>external camera</strong> (either a laptop webcam or a Raspberry Pi camera) captures images of coins placed in front of the claw and streams them to the vision pipeline for real-time color detection.</p>
 
                 <p>This demo shows an <strong>early prototype</strong> of the system. Coins of different colors are presented to the camera, and <strong>OpenCV</strong> determines their color in real time. The detected color is then transmitted to the <strong>Arduino</strong> via <strong>serial communication</strong>. Based on the classification, the Arduino executes a predefined movement path: for example, if a <strong>red coin</strong> is detected, the claw moves to pick it up, closes to grasp the coin, rotates to the right, and releases it into the corresponding pile. If a <strong>brown coin</strong> is detected, the same sequence is performed, but the coin is deposited into the left pile instead.</p>
-
+                <p> <strong> Note: As I had to leave campus early I couldn't take a video so I don't have a full version attached, here I am describing what you currently can see (mostly) in the video but in the full working version it's controlled by a Raspberry Pi!</strong></p>
                 <a href="https://youtu.be/lnkJQeubyXk"
                 class="demo-btn"
                 target="_blank"
